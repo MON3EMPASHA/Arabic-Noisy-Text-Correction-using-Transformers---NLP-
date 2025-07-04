@@ -2,7 +2,7 @@
 
 streamlit
 transformers==4.36.2
-torch==2.1.2+cpu
+torch==2.7.1
 jiwer
 pillow
 requests 

@@ -1,0 +1,5 @@
+streamlit
+transformers
+jiwer
+pillow
+requests 

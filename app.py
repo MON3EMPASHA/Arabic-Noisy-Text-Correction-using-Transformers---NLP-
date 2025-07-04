@@ -5,6 +5,9 @@ import requests
 from PIL import Image
 import io
 import os
+import whisper
+import tempfile
+from streamlit_mic_recorder import speech_to_text
 
 # Load model and tokenizer once
 @st.cache_resource
@@ -54,7 +57,16 @@ st.write("""
 - Optionally, provide the correct text or file to evaluate accuracy and CER.
 """)
 
-option = st.radio("Choose input method:", ["Manual Text", "Upload Text File", "Upload Image (OCR)"])
+option = st.radio(
+    "Choose input method:", 
+    [
+        "Manual Text", 
+        "Upload Text File", 
+        "Upload Image (OCR)",
+        "Upload Audio (Speech-to-Text)",
+        "Record Audio (Live)"
+    ]
+)
 
 input_text = ""
 ocr_error = None
@@ -97,6 +109,43 @@ elif option == "Upload Image (OCR)":
                 st.session_state['corrected'] = corrected
             else:
                 st.error(f"OCR Error: {ocr_error}")
+
+elif option == "Upload Audio (Speech-to-Text)":
+    @st.cache_resource
+    def load_whisper():
+        return whisper.load_model("base")
+    whisper_model = load_whisper()
+    audio_file = st.file_uploader("Upload an audio file (.wav, .mp3, .m4a)", type=["wav", "mp3", "m4a"])
+    if audio_file is not None:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+            tmp.write(audio_file.read())
+            tmp_path = tmp.name
+        st.audio(audio_file)
+        if st.button("Transcribe Audio"):
+            result = whisper_model.transcribe(tmp_path, language="ar")
+            transcribed_text = result["text"]
+            st.success("Transcribed Text:")
+            st.write(transcribed_text)
+            # Pass to correction model
+            corrected = correct_text(transcribed_text)
+            st.success("Corrected Text:")
+            st.write(corrected)
+            st.session_state['corrected'] = corrected
+
+elif option == "Record Audio (Live)":
+    st.write("Record your voice and transcribe it to text.")
+    st.write("Click the microphone icon below and speak:")
+    
+    text = speech_to_text(language='ar', use_container_width=True, just_once=True)
+    
+    if text:
+        st.success("Transcribed Text:")
+        st.write(text)
+        # Pass to correction model
+        corrected = correct_text(text)
+        st.success("Corrected Text:")
+        st.write(corrected)
+        st.session_state['corrected'] = corrected
 
 # Evaluation Section
 if 'corrected' in st.session_state:

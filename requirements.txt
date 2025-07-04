@@ -5,4 +5,7 @@ transformers==4.36.2
 torch==2.7.1
 jiwer
 pillow
-requests 
+requests
+openai-whisper
+ffmpeg-python
+streamlit-mic-recorder 

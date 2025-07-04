@@ -8,4 +8,6 @@ pillow
 requests
 openai-whisper
 ffmpeg-python
-streamlit-mic-recorder 
+streamlit-mic-recorder
+pandas
+plotly 

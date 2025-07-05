@@ -5,7 +5,7 @@ import requests
 from PIL import Image
 import io
 import os
-import whisper
+# import whisper
 import tempfile
 from streamlit_mic_recorder import speech_to_text
 import pandas as pd
@@ -13,6 +13,20 @@ import plotly.express as px
 import plotly.graph_objects as go
 from collections import Counter
 import re
+import unicodedata
+
+# Function to remove specific punctuation marks
+def remove_punctuation(text):
+    # Normalize text to standard form
+    text = unicodedata.normalize("NFKC", text)
+    # Remove all Unicode punctuation and symbols
+    text = ''.join(
+        ch for ch in text
+        if not unicodedata.category(ch).startswith(('P', 'S'))
+    )
+    # Remove extra spaces
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
 
 # Load model and tokenizer once
 @st.cache_resource
@@ -27,7 +41,9 @@ corrector = load_corrector()
 
 # Function to correct text
 def correct_text(text):
-    result = corrector(text, max_length=512, clean_up_tokenization_spaces=True)
+    # Remove punctuation before correction
+    cleaned_text = remove_punctuation(text)
+    result = corrector(cleaned_text, max_length=512, clean_up_tokenization_spaces=True)
     corrected_text = result[0]['generated_text']
     # Trim any "." from the beginning or end of the corrected text
     corrected_text = corrected_text.strip('.')
@@ -50,8 +66,11 @@ def ocr_space_image(image_bytes, api_key='helloworld', language='ara'):
 
 # Function to calculate accuracy (word-level)
 def calculate_accuracy(reference, prediction):
-    ref_words = reference.strip().split()
-    pred_words = prediction.strip().split()
+    # Remove punctuation from both reference and prediction for evaluation
+    ref_clean = remove_punctuation(reference.strip())
+    pred_clean = remove_punctuation(prediction.strip())
+    ref_words = ref_clean.split()
+    pred_words = pred_clean.split()
     correct = sum(r == p for r, p in zip(ref_words, pred_words))
     total = max(len(ref_words), len(pred_words))
     if total == 0:
@@ -60,23 +79,34 @@ def calculate_accuracy(reference, prediction):
 
 # Function to calculate detailed metrics
 def calculate_detailed_metrics(reference, prediction):
-    ref_words = reference.strip().split()
-    pred_words = prediction.strip().split()
+    # Remove punctuation from both reference and prediction for evaluation
+    ref_clean = remove_punctuation(reference.strip())
+    pred_clean = remove_punctuation(prediction.strip())
+    
+    ref_words = ref_clean.split()
+    pred_words = pred_clean.split()
     
     # Word-level metrics
     correct_words = sum(r == p for r, p in zip(ref_words, pred_words))
     total_ref_words = len(ref_words)
     total_pred_words = len(pred_words)
     
-    # Character-level metrics
-    ref_chars = len(reference.replace(" ", ""))
-    pred_chars = len(prediction.replace(" ", ""))
-    correct_chars = sum(1 for r, p in zip(reference, prediction) if r == p)
+    # Character-level metrics (without spaces)
+    ref_chars = len(ref_clean.replace(" ", ""))
+    pred_chars = len(pred_clean.replace(" ", ""))
+    
+    # Calculate correct characters by comparing character by character
+    min_len = min(len(ref_clean), len(pred_clean))
+    correct_chars = sum(1 for i in range(min_len) if ref_clean[i] == pred_clean[i])
     
     # Calculate precision, recall, F1
     precision = correct_words / total_pred_words if total_pred_words > 0 else 0
     recall = correct_words / total_ref_words if total_ref_words > 0 else 0
     f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    
+    # Calculate character accuracy (ensure it doesn't exceed 100%)
+    char_accuracy = correct_chars / max(ref_chars, pred_chars) if max(ref_chars, pred_chars) > 0 else 0
+    char_accuracy = min(char_accuracy, 1.0)  # Cap at 100%
     
     return {
         'word_accuracy': correct_words / max(total_ref_words, total_pred_words) if max(total_ref_words, total_pred_words) > 0 else 0,
@@ -88,13 +118,18 @@ def calculate_detailed_metrics(reference, prediction):
         'total_pred_words': total_pred_words,
         'correct_chars': correct_chars,
         'total_ref_chars': ref_chars,
-        'total_pred_chars': pred_chars
+        'total_pred_chars': pred_chars,
+        'char_accuracy': char_accuracy
     }
 
 # Function to create word comparison dataframe
 def create_word_comparison_df(reference, prediction):
-    ref_words = reference.strip().split()
-    pred_words = prediction.strip().split()
+    # Remove punctuation from both reference and prediction
+    ref_clean = remove_punctuation(reference.strip())
+    pred_clean = remove_punctuation(prediction.strip())
+    
+    ref_words = ref_clean.split()
+    pred_words = pred_clean.split()
     
     max_len = max(len(ref_words), len(pred_words))
     ref_words.extend([''] * (max_len - len(ref_words)))
@@ -111,8 +146,12 @@ def create_word_comparison_df(reference, prediction):
 
 # Function to analyze error patterns
 def analyze_error_patterns(reference, prediction):
-    ref_words = reference.strip().split()
-    pred_words = prediction.strip().split()
+    # Remove punctuation from both reference and prediction
+    ref_clean = remove_punctuation(reference.strip())
+    pred_clean = remove_punctuation(prediction.strip())
+    
+    ref_words = ref_clean.split()
+    pred_words = pred_clean.split()
     
     errors = []
     for i, (ref, pred) in enumerate(zip(ref_words, pred_words)):
@@ -290,7 +329,10 @@ if 'corrected' in st.session_state:
             
             # Calculate basic metrics
             accuracy = calculate_accuracy(reference_text, corrected_text)
-            cer_score = cer(reference_text, corrected_text)
+            # Remove punctuation from both reference and prediction for CER calculation
+            ref_clean = remove_punctuation(reference_text.strip())
+            pred_clean = remove_punctuation(corrected_text.strip())
+            cer_score = cer(ref_clean, pred_clean)
             detailed_metrics = calculate_detailed_metrics(reference_text, corrected_text)
             
             # Display metrics in columns
@@ -320,7 +362,7 @@ if 'corrected' in st.session_state:
                 st.write(f"- Correct characters: {detailed_metrics['correct_chars']}")
                 st.write(f"- Total reference characters: {detailed_metrics['total_ref_chars']}")
                 st.write(f"- Total prediction characters: {detailed_metrics['total_pred_chars']}")
-                st.write(f"- Character accuracy: {detailed_metrics['correct_chars']/max(detailed_metrics['total_ref_chars'], detailed_metrics['total_pred_chars'])*100:.1f}%")
+                st.write(f"- Character accuracy: {detailed_metrics['char_accuracy']*100:.1f}%")
             
             # Word comparison table
             st.subheader("🔍 Word-by-Word Comparison")
@@ -355,7 +397,7 @@ if 'corrected' in st.session_state:
                     detailed_metrics['precision'] * 100,
                     detailed_metrics['recall'] * 100,
                     detailed_metrics['f1_score'] * 100,
-                    detailed_metrics['correct_chars']/max(detailed_metrics['total_ref_chars'], detailed_metrics['total_pred_chars'])*100
+                    detailed_metrics['char_accuracy'] * 100
                 ]
             }
             

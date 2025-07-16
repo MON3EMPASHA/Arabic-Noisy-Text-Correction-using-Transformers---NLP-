@@ -1,4 +1,5 @@
 import streamlit as st
+import whisper
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from jiwer import cer
 import requests

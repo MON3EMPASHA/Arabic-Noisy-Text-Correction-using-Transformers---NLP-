@@ -44,11 +44,35 @@ corrector = load_corrector()
 def correct_text(text):
     # Remove punctuation before correction
     cleaned_text = remove_punctuation(text)
-    result = corrector(cleaned_text, max_length=512, clean_up_tokenization_spaces=True)
-    corrected_text = result[0]['generated_text']
-    # Trim any "." from the beginning or end of the corrected text
-    corrected_text = corrected_text.strip('.')
-    return corrected_text
+    if not cleaned_text.strip():
+        return ""
+    global corrector
+    tokenizer = getattr(corrector, 'tokenizer', None)
+    outputs = []
+    if tokenizer is not None:
+        tokens = tokenizer.encode(cleaned_text)
+        chunk_size = 512
+        for i in range(0, len(tokens), chunk_size):
+            chunk_tokens = tokens[i:i+chunk_size]
+            chunk_text = tokenizer.decode(chunk_tokens)
+            result = corrector(chunk_text, max_length=512, clean_up_tokenization_spaces=True)
+            if isinstance(result, list) and 'generated_text' in result[0]:
+                corrected_chunk = result[0]['generated_text']
+            else:
+                corrected_chunk = str(result)
+            outputs.append(corrected_chunk.strip('.') if isinstance(corrected_chunk, str) else corrected_chunk)
+        return ''.join(outputs)
+    else:
+        # Fallback: just chunk by 512 characters
+        for i in range(0, len(cleaned_text), 512):
+            chunk = cleaned_text[i:i+512]
+            result = corrector(chunk, max_length=512, clean_up_tokenization_spaces=True)
+            if isinstance(result, list) and 'generated_text' in result[0]:
+                corrected_chunk = result[0]['generated_text']
+            else:
+                corrected_chunk = str(result)
+            outputs.append(corrected_chunk.strip('.') if isinstance(corrected_chunk, str) else corrected_chunk)
+        return ''.join(outputs)
 
 # Function to call OCR.space API
 def ocr_space_image(image_bytes, api_key='helloworld', language='ara'):

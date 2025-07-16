@@ -246,23 +246,32 @@ elif option == "Upload Audio (Speech-to-Text)":
     @st.cache_resource
     def load_whisper():
         return whisper.load_model("base")
-    whisper_model = load_whisper()
-    audio_file = st.file_uploader("Upload an audio file (.wav, .mp3, .m4a,.ogg)", type=["wav", "mp3", "m4a","ogg"])
-    if audio_file is not None:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
-            tmp.write(audio_file.read())
-            tmp_path = tmp.name
-        st.audio(audio_file)
-        if st.button("Transcribe Audio"):
+    # Update the file uploader to support .ogg files
+    uploaded_audio = st.file_uploader("Upload audio file", type=["wav", "mp3", "m4a", "ogg"])
+
+    if uploaded_audio is not None:
+        import tempfile
+        import os
+        # Save the uploaded file to a temporary file with the correct extension
+        suffix = "." + uploaded_audio.name.split('.')[-1]
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+            tmp_file.write(uploaded_audio.read())
+            tmp_path = tmp_file.name
+
+        # Check if file exists before passing to Whisper
+        if os.path.exists(tmp_path):
+            whisper_model = load_whisper()
             result = whisper_model.transcribe(tmp_path, language="ar")
+            # Whisper returns a dict with a 'text' key
             transcribed_text = result["text"]
-            st.success("Transcribed Text:")
-            st.write(transcribed_text)
+            st.write("Transcribed Text:", transcribed_text)
             # Pass to correction model
             corrected = correct_text(transcribed_text)
             st.success("Corrected Text:")
             st.write(corrected)
             st.session_state['corrected'] = corrected
+        else:
+            st.error("Audio file could not be saved. Please try again.")
 
 elif option == "Record Audio (Live)":
     st.write("Record your voice and transcribe it to text.")

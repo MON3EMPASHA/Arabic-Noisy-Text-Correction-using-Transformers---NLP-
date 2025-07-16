@@ -247,7 +247,7 @@ elif option == "Upload Audio (Speech-to-Text)":
     def load_whisper():
         return whisper.load_model("base")
     whisper_model = load_whisper()
-    audio_file = st.file_uploader("Upload an audio file (.wav, .mp3, .m4a)", type=["wav", "mp3", "m4a"])
+    audio_file = st.file_uploader("Upload an audio file (.wav, .mp3, .m4a,.ogg)", type=["wav", "mp3", "m4a","ogg"])
     if audio_file is not None:
         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
             tmp.write(audio_file.read())

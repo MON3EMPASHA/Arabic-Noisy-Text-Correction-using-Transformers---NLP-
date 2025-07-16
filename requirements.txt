@@ -11,3 +11,4 @@ ffmpeg-python
 streamlit-mic-recorder
 pandas
 plotly 
+soundfile

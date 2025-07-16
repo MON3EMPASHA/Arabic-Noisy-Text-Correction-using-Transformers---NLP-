@@ -15,6 +15,7 @@ import plotly.graph_objects as go
 from collections import Counter
 import re
 import unicodedata
+import soundfile as sf
 
 # Function to remove specific punctuation marks
 def remove_punctuation(text):
@@ -190,6 +191,13 @@ def analyze_error_patterns(reference, prediction):
     
     return errors
 
+def is_valid_audio(file_path):
+    try:
+        with sf.SoundFile(file_path) as f:
+            return len(f) > 0
+    except Exception:
+        return False
+
 st.title("Arabic Noisy Text Correction App")
 st.write("""
 - Input Arabic text manually, upload a text file, upload an image (OCR), upload an audio file (Speech-to-Text), or record audio (Live).
@@ -284,16 +292,18 @@ elif option == "Upload Audio (Speech-to-Text)":
 
         # Check if file exists before passing to Whisper
         if os.path.exists(tmp_path):
-            whisper_model = load_whisper()
-            result = whisper_model.transcribe(tmp_path, language="ar")
-            # Whisper returns a dict with a 'text' key
-            transcribed_text = result["text"]
-            st.write("Transcribed Text:", transcribed_text)
-            # Pass to correction model
-            corrected = correct_text(transcribed_text)
-            st.success("Corrected Text:")
-            st.write(corrected)
-            st.session_state['corrected'] = corrected
+            if is_valid_audio(tmp_path):
+                whisper_model = load_whisper()
+                result = whisper_model.transcribe(tmp_path, language="ar")
+                transcribed_text = result["text"]
+                st.write("Transcribed Text:", transcribed_text)
+                # Pass to correction model
+                corrected = correct_text(transcribed_text)
+                st.success("Corrected Text:")
+                st.write(corrected)
+                st.session_state['corrected'] = corrected
+            else:
+                st.error("Uploaded audio file is empty or invalid. Please upload a valid audio file.")
         else:
             st.error("Audio file could not be saved. Please try again.")
 

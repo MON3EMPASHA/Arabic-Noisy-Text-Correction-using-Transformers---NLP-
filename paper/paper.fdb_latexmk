@@ -1,0 +1,21 @@
+# Fdb version 4
+["pdflatex"] 1776705318.21958 "e:/Programming/NLP/paper/paper.tex" "paper.pdf" "paper" 1776705318.81026 2
+  "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136765054 2172 fd0c924230362ff848a33632ed45dc23 ""
+  "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmbi7t.tfm" 1136765054 2228 e564491c42a4540b5ebb710a75ff306c ""
+  "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmr7t.tfm" 1136765054 2124 2601a75482e9426d33db523edf23570a ""
+  "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmri7t.tfm" 1136765054 2288 f478fc8fed18759effb59f3dad7f3084 ""
+  "C:/Program Files/MiKTeX/tex/latex/fontspec/fontspec.sty" 1642213122 1656 7e824878bad4df5a3e8bba4e463d9126 ""
+  "C:/Program Files/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1704400941 30006 57b07afb710ee2f649c65cfbafda39c1 ""
+  "C:/Program Files/MiKTeX/tex/latex/l3kernel/expl3.sty" 1704401523 6565 189a69b081829349174d0a0f0ab9e4d5 ""
+  "C:/Program Files/MiKTeX/tex/latex/l3packages/xparse/xparse.sty" 1696961617 9327 c30c00c0072edba199ede5889311aaa9 ""
+  "C:/Users/pc/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1753038841 24215222 1a833114d71264fc826a62e140fcd537 ""
+  "C:/Users/pc/AppData/Roaming/MiKTeX/tex/latex/ieeetran/IEEEtran.cls" 1440627644 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
+  "C:/Users/pc/AppData/Roaming/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "e:/Programming/NLP/paper/paper.tex" 1776705315 25190 b068fee0d704bdbeb276f7043f1e5d65 ""
+  "paper.aux" 1776705310 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "paper.tex" 1776705315 25190 b068fee0d704bdbeb276f7043f1e5d65 ""
+  (generated)
+  "paper.aux"
+  "paper.log"
+  "paper.pdf"
+  (rewritten before read)

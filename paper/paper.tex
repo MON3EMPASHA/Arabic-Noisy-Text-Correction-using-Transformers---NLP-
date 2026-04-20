@@ -1,7 +1,25 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
+\usepackage[no-math]{fontspec}
+\setmainfont[
+  Path = C:/Windows/Fonts/,
+  UprightFont = times.ttf,
+  BoldFont = timesbd.ttf,
+  ItalicFont = timesi.ttf,
+  BoldItalicFont = timesbi.ttf
+]{times.ttf}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[
+  Script = Arabic,
+  Path = C:/Windows/Fonts/,
+  UprightFont = arial.ttf,
+  BoldFont = arialbd.ttf,
+  ItalicFont = ariali.ttf,
+  BoldItalicFont = arialbi.ttf
+]{arial.ttf}
+\newcommand{\ar}[1]{{\arabicfont #1}}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
@@ -97,19 +115,20 @@ The workflow then splits into two complementary branches with different scientif
 Taken together, the figure formalizes the main contribution of the study as a two-tier architecture: a controlled benchmarking path for method analysis and a real-world serving path for application utility. This design also clarifies why results are reported in separated evaluation settings: each branch optimizes a different objective (in-domain reconstruction fidelity versus cross-modal deployment readiness), and both are required for a complete Arabic correction framework.
 
 \subsection{Custom Transformer Model}
-The custom model is a character-level seq2seq Transformer with embedding dimension 256, 3 encoder layers, 3 decoder layers, 8 attention heads, feed-forward dimension 512, dropout 0.1, and maximum sequence length 128. Training uses Adam \cite{kingma2015adam} with learning rate $10^{-4}$, scheduled sampling, mixed precision, and checkpointing. This configuration intentionally favors compactness and interpretability over maximum scale, which is appropriate for analyzing correction behavior at the character level.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{Diagrams/seq2seq.png}
-\caption{Seq2Seq encoder-decoder correction architecture used by the custom character-level model.}
+\caption{Custom seq2seq Transformer used in Branch A. Noisy Arabic character sequences are embedded and position-encoded, processed by stacked encoder self-attention layers, and decoded autoregressively with causal masking and encoder-decoder attention to produce corrected output characters.}
 \label{fig:transformer_blocks}
 \end{figure}
 
-Fig.~\ref{fig:transformer_blocks} explains how noisy Arabic character sequences are encoded into contextual representations and then decoded autoregressively into corrected text. The architecture highlights the core seq2seq flow used in training, including encoder context building, decoder-side causal generation, and attention-based conditioning on the source sequence.
+Fig.~\ref{fig:transformer_blocks} is placed here to ground the model description before listing hyperparameters. The figure explains how noisy Arabic character sequences are encoded into contextual representations and then decoded autoregressively into corrected text, including encoder context building, decoder-side causal generation, and attention-based conditioning on the source sequence.
+
+The custom model is a character-level seq2seq Transformer with embedding dimension 256, 3 encoder layers, 3 decoder layers, 8 attention heads, feed-forward dimension 512, dropout 0.1, and maximum sequence length 128. Training uses Adam \cite{kingma2015adam} with learning rate $10^{-4}$, scheduled sampling, mixed precision, and checkpointing. This configuration intentionally favors compactness and interpretability over maximum scale, which is appropriate for analyzing correction behavior at the character level.
 
 \subsection{Pre-trained LLM Correction Service}
-For deployment-grade correction, the project uses \texttt{CAMeL-Lab/arabart-qalb15-gec-ged-13} through Hugging Face Transformers. This path is integrated into a Streamlit application and supports manual text entry, text-file upload, image OCR via the OCR.space API, audio upload via Whisper, and live recording. The deployment layer is therefore not a separate demonstration artifact; it is a functional extension of the modeling pipeline that allows the same correction logic to be exercised across multiple real-world input modalities.
+For deployment-grade correction, the project uses \nolinkurl{CAMeL-Lab/arabart-qalb15-gec-ged-13} through Hugging Face Transformers. This path is integrated into a Streamlit application and supports manual text entry, text-file upload, image OCR via the OCR.space API, audio upload via Whisper, and live recording. The deployment layer is therefore not a separate demonstration artifact; it is a functional extension of the modeling pipeline that allows the same correction logic to be exercised across multiple real-world input modalities.
 
 \section{Experiments}
 \subsection{Metrics}
@@ -135,7 +154,7 @@ To contextualize model behavior, the evaluation design includes two reference ba
 The training trajectory demonstrates rapid convergence in the early epochs and then a gradual flattening as optimization approaches its best operating point. Accuracy increases from 38.38\% in epoch 1 to 91.69\% by epoch 6, after which performance remains high but begins to soften slightly, reaching 89.36\% by epoch 10. This pattern is consistent with a model that learns the dominant character regularities quickly and then starts to overfit to the synthetic noise distribution later in training. In practical terms, the learning curve indicates that the architecture is sufficiently expressive for the task, but that additional regularization or earlier stopping could potentially preserve the best generalization point more effectively.
 
 \begin{table*}[!t]
-\caption{Side-by-Side Summary of Custom Transformer and AraBART Under Their Respective Evaluation Settings}
+\caption{Side-by-Side Summary of Custom Transformer and AraBART Under Their Respective Evaluation Settings (reported values are taken from project logs/notebooks)}
 \label{tab:combined_results}
 \centering
 \setlength{\tabcolsep}{3pt}
@@ -150,9 +169,9 @@ CER & 0.0364 & 0.0950 \\
 BLEU & 0.292 & Not reported in deployment setting \\
 Token-level training accuracy (peak) & 91.69\% & Not applicable (pre-trained inference service) \\
 Fine-tuning required & Yes (project-specific training) & No \\
-Training time & \textasciitilde{}100 min & None for this study (inference-only integration) \\
-Model size & \textasciitilde{}50 MB & \textasciitilde{}1.5 GB \\
-Inference speed & Fast & Moderate \\
+Training time & \textasciitilde{}100 min (reported GPU run) & None for this study (inference-only integration) \\
+Model size & \textasciitilde{}50 MB (reported checkpoint size) & \textasciitilde{}1.5 GB (reported model footprint) \\
+Inference profile & Lightweight checkpoint after training & Heavier pre-trained checkpoint at inference \\
 Supported input modes & Text correction pipeline input & Text, file, OCR image, audio, live speech \\
 \bottomrule
 \end{tabular*}
@@ -166,7 +185,7 @@ The training-time contrast remains meaningful: the custom model is cheaper to de
 \subsection{Error Distribution and Character Confusions}
 Error analysis shows that substitutions dominate, accounting for roughly 60--70\% of observed mistakes, while insertions and deletions each contribute approximately 15--20\%. This distribution is typical of character-level Arabic correction because many of the relevant errors involve visually similar letters, orthographic variants, or spacing irregularities rather than complete word omissions. The concentration of errors in substitutions suggests that the model is often choosing between near-equivalent characters, which is precisely the kind of ambiguity that character-level modeling must resolve.
 
-The confusion profile is concentrated around high-frequency characters and whitespace interactions. This outcome is consistent with Arabic writing conventions, where spacing can change token boundaries and several letters have close visual or contextual relationships. In particular, Alef variants, Hamza-bearing forms, and Yaa/Alif-like confusions remain difficult cases because they are semantically and orthographically close while also being sensitive to local context. Whitespace errors are additionally amplified by character-level autoregressive decoding: once a boundary token is misplaced, subsequent characters may drift into shifted token boundaries, compounding local alignment errors. These observations indicate that the current augmentation strategy captures general corruption patterns well but still leaves room for targeted enrichment around the most problematic character groups.
+The confusion profile is concentrated around high-frequency characters and whitespace interactions. This outcome is consistent with Arabic writing conventions, where spacing can change token boundaries and several letters have close visual or contextual relationships. In particular, Alef and Hamza variants (e.g., \ar{ا}, \ar{أ}, \ar{إ}), and Yaa/Alif-Maqsura style confusions (\ar{ي}/\ar{ى}), remain difficult because they are semantically and orthographically close while also being sensitive to local context. Teh Marbuta and Heh confusions (\ar{ة}/\ar{ه}) are also recurrent in noisy text. For readability, a phrase-level Arabic example is shown here: \ar{اللغة العربية وتصحيح النصوص}. Whitespace errors are additionally amplified by character-level autoregressive decoding: once a boundary token is misplaced, subsequent characters may drift into shifted token boundaries, compounding local alignment errors. These observations indicate that the current augmentation strategy captures general corruption patterns well but still leaves room for targeted enrichment around the most problematic character groups.
 
 \begin{figure}[!t]
 \centering

@@ -1,2 +1,72 @@
 \relax 
-\gdef \@abspage@last{1}
+\providecommand\zref@newlabel[2]{}
+\ProvideDocumentCommand \xpg@aux {mm}{}
+\citation{sutskever2014,bahdanau2015,vaswani2017,devlin2019}
+\citation{sutskever2014,bahdanau2015}
+\citation{vaswani2017}
+\citation{lewis2020bart,raffel2020t5}
+\citation{antoun2020arabert,inoue2021camel}
+\citation{rozovskaya2014qalb,rozovskaya2015qalb}
+\citation{abandah2022bilstm,qaraghuli2024t5}
+\citation{radford2023whisper,ocrspace}
+\citation{paszke2019pytorch,wolf2020transformers}
+\@writefile{toc}{\xpg@aux {}{english}}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Literature Review}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Seq2Seq Foundations and Transformer-Based Correction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Arabic-Specific Pre-Training and Error-Correction Benchmarks}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Deployment-Oriented Arabic Correction Systems}{1}{}\protected@file@percent }
+\citation{kingma2015adam}
+\citation{levenshtein1966,papineni2002bleu}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Methods}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Data Acquisition and Curation}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Arabic Normalization and Noise Injection}{2}{}\protected@file@percent }
+\newlabel{sec:noise_injection}{{\mbox  {III-B}}{2}{}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Custom Transformer Model}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Pre-trained LLM Correction Service}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Metrics}{2}{}\protected@file@percent }
+\citation{camel_arabart,ocrspace,radford2023whisper}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \texorpdfstring {\xpg@aux {}{english}}{}\ignorespaces Full end-to-end Arabic correction pipeline. The workflow begins with corpus collection and quality filtering, proceeds through deterministic Arabic normalization and controlled synthetic corruption, and then branches into (A) custom character-level Transformer training/evaluation and (B) deployment-oriented AraBART inference in a multi-modal Streamlit service.}}{3}{}\protected@file@percent }
+\newlabel{fig:project_pipeline}{{1}{3}{}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \texorpdfstring {\xpg@aux {}{english}}{}\ignorespaces Custom seq2seq Transformer used in Branch A. Noisy Arabic character sequences are embedded and position-encoded, processed by stacked encoder self-attention layers, and decoded autoregressively with causal masking and encoder-decoder attention to produce corrected output characters.}}{3}{}\protected@file@percent }
+\newlabel{fig:transformer_blocks}{{2}{3}{}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Training Protocol}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Evaluation Procedure}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Baselines}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results and Discussion}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Training Dynamics and Convergence}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Quantitative Comparison of the Two Correction Paths}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Error Distribution and Character Confusions}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \texorpdfstring {\xpg@aux {}{english}}{}\ignorespaces Distribution of CER over evaluation samples. The central mass around low CER values indicates stable correction behavior for most samples.}}{4}{}\protected@file@percent }
+\newlabel{fig:cer_distribution}{{3}{4}{}{figure.3}{}}
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{sutskever2014}{1}
+\bibcite{bahdanau2015}{2}
+\bibcite{vaswani2017}{3}
+\bibcite{devlin2019}{4}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces \texorpdfstring {\xpg@aux {}{english}}{}\ignorespaces Side-by-Side Summary of Custom Transformer and AraBART Under Their Respective Evaluation Settings (reported values are taken from project logs/notebooks)}}{5}{}\protected@file@percent }
+\newlabel{tab:combined_results}{{I}{5}{}{table.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \texorpdfstring {\xpg@aux {}{english}}{}\ignorespaces Character-level confusion matrix (top frequent characters). Dominant off-diagonal regions highlight recurring substitution patterns.}}{5}{}\protected@file@percent }
+\newlabel{fig:char_confusion}{{4}{5}{}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Implications for Deployment}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{5}{}\protected@file@percent }
+\bibcite{lewis2020bart}{5}
+\bibcite{raffel2020t5}{6}
+\bibcite{antoun2020arabert}{7}
+\bibcite{inoue2021camel}{8}
+\bibcite{rozovskaya2014qalb}{9}
+\bibcite{rozovskaya2015qalb}{10}
+\bibcite{abandah2022bilstm}{11}
+\bibcite{qaraghuli2024t5}{12}
+\bibcite{radford2023whisper}{13}
+\bibcite{ocrspace}{14}
+\bibcite{paszke2019pytorch}{15}
+\bibcite{wolf2020transformers}{16}
+\bibcite{kingma2015adam}{17}
+\bibcite{levenshtein1966}{18}
+\bibcite{papineni2002bleu}{19}
+\bibcite{camel_arabart}{20}
+\gdef \@abspage@last{6}

@@ -1,12 +1,12 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.1) (preloaded format=xelatex 2026.2.13)  22 APR 2026 18:40
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.4.8)  22 APR 2026 19:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./paper/paper.tex
-(paper/paper.tex
+**./paper.tex
+(paper.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
-(D:\Program Files\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
+L3 programming layer <2025-12-24>
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -81,12 +81,12 @@ LaTeX Font Warning: Font shape `TU/ptm/bx/it' undefined
 \@IEEEtranrubishbin=\box54
 )
 ** ATTENTION: Overriding command lockouts (line 2).
-(D:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.sty
-(D:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
-(D:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2026-01-19 L3 programming layer (loader) 
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.sty
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+(C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2025-12-24 L3 programming layer (loader) 
 
-(D:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
 File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count286
 \g__pdfannot_backend_int=\count287
@@ -96,7 +96,7 @@ Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 
-(D:\Program Files\MiKTeX\tex/latex/fontspec\fontspec-xetex.sty
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec-xetex.sty
 Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
 X
 \l__fontspec_script_int=\count289
@@ -114,10 +114,10 @@ X
 \l__fontspec_tmpb_dim=\dimen173
 \l__fontspec_tmpc_dim=\dimen174
 
-(D:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
-(D:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.cfg)))
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.cfg)))
 
 Package fontspec Info: 
 (fontspec)             Font family 'times.ttf(0)' created for font 'times.ttf'
@@ -155,33 +155,32 @@ ge=dflt;mapping=tex-text;"
 ge=dflt;+smcp;mapping=tex-text;"
 
 
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\polyglossia.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\polyglossia.sty
 Package: polyglossia 2025/12/01 v2.9 Modern multilingual typesetting with XeLaT
 eX and LuaLaTeX
 
-(D:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+(C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count300
 )
-(D:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 \l_xpg_alias_keyvals_int=\count301
 
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\gloss-latex.ldf
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\gloss-latex.ldf
 File: gloss-latex.ldf polyglossia: module for default language
 ))
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\gloss-english.ldf
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\gloss-english.ldf
 File: gloss-english.ldf polyglossia: module for English
 )
 
 Package polyglossia Info: Default language is english
 
-
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\gloss-arabic.ldf
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\gloss-arabic.ldf
 File: gloss-arabic.ldf polyglossia: module for Arabic
 
-(D:\Program Files\MiKTeX\tex/latex/bidi\bidi.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\bidi.sty
 Package: bidi 2026/01/08 v26.01.08 (Release Iran) Bidirectional typesetting in 
 plain TeX and LaTeX
 
@@ -210,7 +209,7 @@ plain TeX and LaTeX
 * Primary author of bidi package: Vafa Khalighi.
 * 
 ****************************************************
-(D:\Program Files\MiKTeX\tex/latex/bidi\biditools.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\biditools.sty
 Package: biditools 2025/12/19 v2.9 Programming tools for bidi package
 \@bidi@envbody=\toks18
 \@bidi@emptytoks=\toks19
@@ -226,35 +225,35 @@ Package: biditools 2025/12/19 v2.9 Programming tools for bidi package
 \bidi@empty@stack=\toks25
 \bidi@looprepeat@depth=\count306
 )
-(D:\Program Files\MiKTeX\tex/latex/zref\zref-abspage.sty
-Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/zref\zref-abspage.sty
+Package: zref-abspage 2026-03-07 v2.37 Module abspage for zref (HO)
 
-(D:\Program Files\MiKTeX\tex/latex/zref\zref-base.sty
-Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/zref\zref-base.sty
+Package: zref-base 2026-03-07 v2.37 Module base for zref (HO)
 
-(D:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
-(D:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(D:\Program Files\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(D:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.st
+y
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(D:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+) (C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
 )
-(D:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-(D:\Program Files\MiKTeX\tex/latex/auxhook\auxhook.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 Package zref Info: New property list: main on input line 767.
@@ -268,7 +267,7 @@ Package zref Info: New property: abspage on input line 67.
 \bidi@typesethour=\count308
 \bidi@typesetminute=\count309
 
-(D:\Program Files\MiKTeX\tex/latex/bidi\latex-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\latex-xetex-bidi.def
 File: latex-xetex-bidi.def 2025/12/19 v1.5.6 bidi adaptations for `latex.ltx' f
 or XeTeX engine
 \bidi@n@everypar=\toks26
@@ -278,7 +277,7 @@ LaTeX Info: Redefining \rightline on input line 327.
 LaTeX Info: Redefining \underline on input line 335.
 \bidi@column@check@number=\count310
 
-(D:\Program Files\MiKTeX\tex/latex/bidi\footnote-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\footnote-xetex-bidi.def
 File: footnote-xetex-bidi.def 2025/09/30 v1.6 bidi footnote macros for XeTeX en
 gine
 \c@footdir@label=\count311
@@ -288,14 +287,13 @@ gine
 \bidi@digits@charclass=\XeTeXcharclass1
 \bidi@sepmark@charclass=\XeTeXcharclass2
 )
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\arabicnumbers.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\arabicnumbers.sty
 Package: arabicnumbers 2010/03/18 v0.2 Formatting of Arabic and Farsi digits an
 d of Arabic abjad numerals
-)
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\hijrical.sty
+) (C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\hijrical.sty
 Package: hijrical 2010/07/12 v0.2 Islamic calendar
 
-(D:\Program Files\MiKTeX\tex/latex/tools\calc.sty
+(C:\Program Files\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count313
 \calc@Bcount=\count314
@@ -308,7 +306,7 @@ LaTeX Info: Redefining \addtolength on input line 87.
 \calc@Ccount=\count315
 \calc@Cskip=\skip54
 )
-(D:\Program Files\MiKTeX\tex/latex/polyglossia\cal-util.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/polyglossia\cal-util.def
 \c@tmpA=\count316
 \c@tmpB=\count317
 \c@tmpC=\count318
@@ -357,33 +355,33 @@ ge=dflt;"
 ge=dflt;+smcp;"
 
 
-(D:\Program Files\MiKTeX\tex/latex/cite\cite.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(D:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip55
 
 For additional information on amsmath, use the `?' option.
-(D:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
 
-(D:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks28
 \ex@=\dimen177
 ))
-(D:\Program Files\MiKTeX\tex/latex/bidi\amstext-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\amstext-xetex-bidi.def
 File: amstext-xetex-bidi.def 2016/09/12 v0.2 bidi adaptations for amstext packa
 ge for XeTeX engine
 )
-(D:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen178
 )
-(D:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count325
@@ -434,14 +432,14 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
-(D:\Program Files\MiKTeX\tex/latex/bidi\amsmath-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\amsmath-xetex-bidi.def
 File: amsmath-xetex-bidi.def 2020/05/16 v1.2 bidi adaptations for amsmath packa
 ge for XeTeX engine
 )
-(D:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(D:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -449,50 +447,50 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(D:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(D:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks33
 )
-(D:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(D:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(D:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 106.
 
-(D:\Program Files\MiKTeX\tex/latex/graphics-def\xetex.def
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\xetex.def
 File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen186
 \Gin@req@width=\dimen187
 )
-(D:\Program Files\MiKTeX\tex/latex/bidi\graphicx-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\graphicx-xetex-bidi.def
 File: graphicx-xetex-bidi.def 2017/06/17 v0.5 bidi adaptations for graphicx pac
 kage for XeTeX engine
 )
-(D:\Program Files\MiKTeX\tex/latex/base\textcomp.sty
+(C:\Program Files\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
-(D:\Program Files\MiKTeX\tex/latex/url\url.sty
+(C:\Program Files\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(D:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
-(D:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 274.
 
-(D:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+(C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `RGB' extended on input line 1365.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
@@ -502,12 +500,12 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
-(D:\Program Files\MiKTeX\tex/latex/bidi\xcolor-xetex-bidi.def
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/bidi\xcolor-xetex-bidi.def
 File: xcolor-xetex-bidi.def 2022/06/13 v0.3 bidi adaptations for xcolor package
  for XeTeX engine
 LaTeX Info: Redefining \color on input line 49.
 )
-(D:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty
+(C:\Users\abdel\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen188
 \lightrulewidth=\dimen189
@@ -527,26 +525,25 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count340
 \@thisrulewidth=\dimen256
 )
-(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
-aux)
+(paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 -- Lines per column: 56 (exact).
 
@@ -562,59 +559,61 @@ LaTeX Warning: No \author given.
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 110
+LaTeX Font Info:    Trying to load font information for U+msa on input line 121
 .
- (D:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 110
+LaTeX Font Info:    Trying to load font information for U+msb on input line 121
 .
 
-(D:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
+Underfull \hbox (badness 10000) in paragraph at lines 123--123
 [][]\TU/times.ttf(0)/b/n/8 Scale[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
 [][]\TU/times.ttf(0)/m/n/8 Youm7 Corpus (this[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 [][]\TU/times.ttf(0)/m/n/8 AlKhaleej + additional[]
  []
 
 
-Underfull \hbox (badness 5231) in paragraph at lines 116--116
+Underfull \hbox (badness 5231) in paragraph at lines 127--127
 [][]\TU/times.ttf(0)/m/n/8 Ultimate Arabic News[]
  []
 
 
-Overfull \hbox (0.88062pt too wide) in paragraph at lines 138--146
+Overfull \hbox (0.88062pt too wide) in paragraph at lines 149--157
  [][][][] 
  []
 
 File: Diagrams/pipeline.png Graphic file (type bmp)
 <Diagrams/pipeline.png>
-[2]
 File: Diagrams/seq2seq.png Graphic file (type bmp)
 <Diagrams/seq2seq.png>
-
-Underfull \hbox (badness 2556) in paragraph at lines 175--176
+[2]
+Underfull \hbox (badness 2556) in paragraph at lines 186--187
 []\TU/times.ttf(0)/m/n/10 ging Face model $[][][][][][][][][][] [] [][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][]$.[]
  []
 
-[3]
-Underfull \hbox (badness 2237) in paragraph at lines 208--209
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+Underfull \hbox (badness 2237) in paragraph at lines 219--220
 []\TU/times.ttf(0)/m/n/8 ical edits, weak un-[]
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 251--252
+Underfull \hbox (badness 4805) in paragraph at lines 262--263
 [][]\TU/times.ttf(0)/m/n/10 The confusion profile is concentrated around high-[
 ]
  []
@@ -624,9 +623,7 @@ File: Diagrams/CER.png Graphic file (type bmp)
 [4]
 File: Diagrams/CM.png Graphic file (type bmp)
 <Diagrams/CM.png>
- [5]
-(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
-bbl)
+ [5] (paper.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -638,12 +635,10 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6]
-(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
-aux)
+[6] (paper.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+L3 programming layer <2025-12-24>
  ***********
 
 
@@ -651,13 +646,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10223 strings out of 402982
- 245327 string characters out of 5452820
- 705208 words of memory out of 5000000
- 38736 multiletter control sequences out of 15000+600000
+ 10221 strings out of 402987
+ 245239 string characters out of 5452872
+ 705175 words of memory out of 5000000
+ 38731 multiletter control sequences out of 15000+600000
  633048 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,10n,93p,1526b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 82i,10n,93p,1520b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---
-NLP-\paper\paper.xdv (6 pages, 311748 bytes).
+Output written on paper.pdf (6 pages).

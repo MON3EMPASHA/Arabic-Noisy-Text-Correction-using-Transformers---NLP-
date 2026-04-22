@@ -34,6 +34,17 @@
   \hfill\mbox{}\par
   \mbox{}\hfill\begin{@IEEEauthorhalign}
 }
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  {\footnotesize\itshape
+  \setbox\@tempboxa\hbox{\textbf{#1.} #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    \textbf{#1.} #2\par
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi}
+  \vskip\belowcaptionskip
+}
 \makeatother
 
 \begin{document}

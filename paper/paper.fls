@@ -1,173 +1,57 @@
-PWD D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-
-INPUT C:\Users\PC\AppData\Local\MiKTeX\miktex\data\le\xetex\xelatex.fmt
+PWD A:\CS MSA\Old\Year 3 Term 2\NLP\NLP Project - Final Version
+INPUT C:\Users\abdel\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
 INPUT paper\paper.tex
-OUTPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.log
-INPUT D:\Program Files\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
-INPUT D:\Program Files\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-xetex.def
-INPUT D:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-xetex.def
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec-xetex.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec-xetex.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\base\fontenc.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\polyglossia.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\polyglossia.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-latex.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-latex.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-english.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-english.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-arabic.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\gloss-arabic.ldf
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\bidi.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\bidi.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\biditools.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\biditools.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\zref\zref-abspage.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\zref\zref-abspage.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\zref\zref-base.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\zref\zref-base.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\infwarerr\infwarerr.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\infwarerr\infwarerr.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\etexcmds\etexcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\generic\etexcmds\etexcmds.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\auxhook\auxhook.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\auxhook\auxhook.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\latex-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\latex-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\latex-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\footnote-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\footnote-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\footnote-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\arabicnumbers.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\arabicnumbers.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\hijrical.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\hijrical.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\tools\calc.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\tools\calc.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\cal-util.def
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\cal-util.def
-INPUT D:\Program Files\MiKTeX\tex\latex\polyglossia\cal-util.def
-INPUT D:\Program Files\MiKTeX\tex\latex\cite\cite.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\cite\cite.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsgen.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amstext-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amstext-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amstext-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsbsy.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsmath\amsopn.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amsmath-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amsmath-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\amsmath-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-def\xetex.def
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-def\xetex.def
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-def\xetex.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\graphicx-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\graphicx-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\graphicx-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\base\textcomp.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\base\textcomp.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\url\url.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\url\url.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\xcolor\xcolor.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\mathcolor.ltx
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\mathcolor.ltx
-INPUT D:\Program Files\MiKTeX\tex\latex\graphics\mathcolor.ltx
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\xcolor-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\xcolor-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\bidi\xcolor-xetex-bidi.def
-INPUT D:\Program Files\MiKTeX\tex\latex\booktabs\booktabs.sty
-INPUT D:\Program Files\MiKTeX\tex\latex\booktabs\booktabs.sty
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.aux
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.aux
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.aux
-OUTPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.aux
-OUTPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.xdv
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
-INPUT D:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\pipeline.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\pipeline.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\pipeline.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\seq2seq.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\seq2seq.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\seq2seq.png
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT D:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CER.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CER.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CER.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CM.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CM.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\Diagrams\CM.png
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.bbl
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.bbl
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.bbl
-INPUT D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.aux
+OUTPUT A:\CS MSA\Old\Year 3 Term 2\NLP\NLP Project - Final Version\paper\paper.log
+INPUT C:\Users\abdel\AppData\Roaming\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
+INPUT C:\Users\abdel\AppData\Roaming\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
+INPUT C:\Users\abdel\AppData\Roaming\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Users\abdel\AppData\Roaming\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Users\abdel\AppData\Roaming\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmbi7t.tfm
+INPUT C:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\fontspec\fontspec.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def

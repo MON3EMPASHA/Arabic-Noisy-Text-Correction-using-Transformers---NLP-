@@ -89,8 +89,10 @@ A.~Rozovskaya \emph{et~al.}, ``The qalb-2014 shared task on automatic text
   Natural Language Processing}, 2014.
 
 \bibitem{rozovskaya2015qalb}
-------, ``The qalb-2015 shared task on automatic text correction for arabic,''
-  in \emph{Proceedings of the BEA Workshop}, 2015.
+A.~Rozovskaya, N.~Habash, R.~Roth, N.~Zalmout, H.~Bouamor, S.~Khalifa,
+  O.~Obeid, M.~Ghoneim, and W.~Hassan, ``The qalb-2015 shared task on automatic
+  text correction for arabic,'' in \emph{Proceedings of the BEA Workshop},
+  2015.
 
 \bibitem{abandah2022bilstm}
 \BIBentryALTinterwordspacing

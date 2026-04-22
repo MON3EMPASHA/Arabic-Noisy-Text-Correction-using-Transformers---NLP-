@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.1) (preloaded format=xelatex 2026.2.13)  22 APR 2026 16:55
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.1) (preloaded format=xelatex 2026.2.13)  22 APR 2026 18:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,48 +562,71 @@ LaTeX Warning: No \author given.
 
 
 ]
-File: Diagrams/pipeline.png Graphic file (type bmp)
-<Diagrams/pipeline.png>
-File: Diagrams/seq2seq.png Graphic file (type bmp)
-<Diagrams/seq2seq.png>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 128
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110
 .
  (D:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 128
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110
 .
 
 (D:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 2556) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
+[][]\TU/times.ttf(0)/b/n/8 Scale[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[][]\TU/times.ttf(0)/m/n/8 Youm7 Corpus (this[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
+[][]\TU/times.ttf(0)/m/n/8 AlKhaleej + additional[]
+ []
+
+
+Underfull \hbox (badness 5231) in paragraph at lines 116--116
+[][]\TU/times.ttf(0)/m/n/8 Ultimate Arabic News[]
+ []
+
+
+Overfull \hbox (0.88062pt too wide) in paragraph at lines 138--146
+ [][][][] 
+ []
+
+File: Diagrams/pipeline.png Graphic file (type bmp)
+<Diagrams/pipeline.png>
+[2]
+File: Diagrams/seq2seq.png Graphic file (type bmp)
+<Diagrams/seq2seq.png>
+
+Underfull \hbox (badness 2556) in paragraph at lines 175--176
 []\TU/times.ttf(0)/m/n/10 ging Face model $[][][][][][][][][][] [] [][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][]$.[]
  []
 
-[2] [3]
-Underfull \hbox (badness 2165) in paragraph at lines 181--182
-[][]\TU/times.ttf(0)/m/n/10 Table I[] presents in-domain model benchmarking and
-[]
+[3]
+Underfull \hbox (badness 2237) in paragraph at lines 208--209
+[]\TU/times.ttf(0)/m/n/8 ical edits, weak un-[]
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 188--189
+Underfull \hbox (badness 4805) in paragraph at lines 251--252
 [][]\TU/times.ttf(0)/m/n/10 The confusion profile is concentrated around high-[
 ]
  []
 
 File: Diagrams/CER.png Graphic file (type bmp)
 <Diagrams/CER.png>
+[4]
 File: Diagrams/CM.png Graphic file (type bmp)
 <Diagrams/CM.png>
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+ [5]
 (D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
-bbl [5])
+bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -615,9 +638,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
-
-]
+[6]
 (D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
 aux)
  ***********
@@ -630,13 +651,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10216 strings out of 402982
- 245124 string characters out of 5452820
- 699208 words of memory out of 5000000
- 38730 multiletter control sequences out of 15000+600000
- 633040 words of font info for 125 fonts, out of 8000000 for 9000
+ 10223 strings out of 402982
+ 245327 string characters out of 5452820
+ 705208 words of memory out of 5000000
+ 38736 multiletter control sequences out of 15000+600000
+ 633048 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,10n,93p,1526b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---
-NLP-\paper\paper.xdv (6 pages, 278580 bytes).
+NLP-\paper\paper.xdv (6 pages, 311748 bytes).

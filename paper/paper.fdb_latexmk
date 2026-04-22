@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex paper/paper"] 1776869709.98341 "paper/paper.aux" "paper/paper.bbl" "paper/paper" 1776869730.86529 0
+["bibtex paper/paper"] 1776876002.47221 "paper/paper.aux" "paper/paper.bbl" "paper/paper" 1776876023.30612 0
   "D:/MSA/NLP/Arabic-Noisy-Text-Correction-using-Transformers---NLP-/paper/references.bib" 1776705735 8446 f3f0621f2870260111bb8be12a4b857b ""
   "D:/Program Files/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "paper/paper.aux" 1776869711 6203 39e611f6805085a95726178dfac448c1 "xelatex"
+  "paper/paper.aux" 1776876004 7024 4c87941f238a8ab48eaaddc0f03c1da5 "xelatex"
   (generated)
   "paper/paper.bbl"
   "paper/paper.blg"
   (rewritten before read)
-["xdvipdfmx"] 1776869712.35597 "paper/paper.xdv" "paper/paper.pdf" "paper/paper" 1776869730.87015 0
-  "paper/paper.xdv" 1776869711 278580 2e4a1edd6e1083c2d312915f86d3a72f "xelatex"
+["xdvipdfmx"] 1776876005.21187 "paper/paper.xdv" "paper/paper.pdf" "paper/paper" 1776876023.31028 0
+  "paper/paper.xdv" 1776876004 311748 e5d789915a2fbf0c7fb7905519de8b62 "xelatex"
   (generated)
   "paper/paper.pdf"
   (rewritten before read)
-["xelatex"] 1776869710.32723 "paper/paper.tex" "paper/paper.xdv" "paper" 1776869730.86583 0
+["xelatex"] 1776876002.80491 "paper/paper.tex" "paper/paper.xdv" "paper" 1776876023.3065 0
   "C:/Users/PC/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1771000898 27168396 25a37c180d803aac88c7d3577a6e6a9e ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "D:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -89,9 +89,9 @@
   "paper/Diagrams/CM.png" 1776705733 265652 1df4cb8d78909bfb29e98d104824788c ""
   "paper/Diagrams/pipeline.png" 1776705734 2818263 a7222d0f547df08162bb7647e39e8038 ""
   "paper/Diagrams/seq2seq.png" 1776705735 3556927 117d4a487372f9b404f8ebbf001a2a50 ""
-  "paper/paper.aux" 1776869711 6203 39e611f6805085a95726178dfac448c1 "xelatex"
-  "paper/paper.bbl" 1776869710 7385 4553c59e016861cea4091010563b30eb "bibtex paper/paper"
-  "paper/paper.tex" 1776869699 26315 dece6d2788ee852d1d81dd87c84c3e9c ""
+  "paper/paper.aux" 1776876004 7024 4c87941f238a8ab48eaaddc0f03c1da5 "xelatex"
+  "paper/paper.bbl" 1776876002 7385 4553c59e016861cea4091010563b30eb "bibtex paper/paper"
+  "paper/paper.tex" 1776875818 30830 b087911297de11971ab51e7a631f36be ""
   (generated)
   "paper/paper.aux"
   "paper/paper.log"

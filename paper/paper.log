@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.1) (preloaded format=xelatex 2026.2.13)  20 APR 2026 19:46
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.1) (preloaded format=xelatex 2026.2.13)  22 APR 2026 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./paper.tex
-(paper.tex
+**./paper/paper.tex
+(paper/paper.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (D:\Program Files\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
@@ -526,7 +526,9 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count339
 \@lastruleclass=\count340
 \@thisrulewidth=\dimen256
-) (paper.aux)
+)
+(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
+aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -575,20 +577,9 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 128
 (D:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-[][]\TU/times.ttf(0)/m/n/10 For deployment-grade correction, the project uses[]
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-[]\TU/lmtt/m/n/10 CAMeL-Lab/arabart-qalb15-gec-ged-13 \TU/times.ttf(0)/m/n/10 t
-hrough[]
- []
-
-
-Underfull \hbox (badness 3333) in paragraph at lines 131--132
-[]\TU/times.ttf(0)/m/n/10 Hugging Face Transformers. This path is integrated[]
+Underfull \hbox (badness 2556) in paragraph at lines 131--132
+[]\TU/times.ttf(0)/m/n/10 ging Face model $[][][][][][][][][][] [] [][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][]$.[]
  []
 
 [2] [3]
@@ -610,7 +601,9 @@ File: Diagrams/CM.png Graphic file (type bmp)
 [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- (paper.bbl [5])
+
+(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
+bbl [5])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -624,7 +617,9 @@ Before submitting the final camera ready copy, remember to:
 
 [6
 
-] (paper.aux)
+]
+(D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---NLP-\paper\paper.
+aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -635,12 +630,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10217 strings out of 402982
- 244724 string characters out of 5452820
+ 10216 strings out of 402982
+ 245124 string characters out of 5452820
  699208 words of memory out of 5000000
- 38731 multiletter control sequences out of 15000+600000
- 633048 words of font info for 126 fonts, out of 8000000 for 9000
+ 38730 multiletter control sequences out of 15000+600000
+ 633040 words of font info for 125 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,10n,93p,1520b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 82i,10n,93p,1526b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on paper.pdf (6 pages).
+Output written on D:\MSA\NLP\Arabic-Noisy-Text-Correction-using-Transformers---
+NLP-\paper\paper.xdv (6 pages, 278580 bytes).

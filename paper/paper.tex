@@ -40,33 +40,38 @@
 
 \title{An End-to-End Arabic Text Correction Framework: Comparing Custom Character-Level Transformers and Pre-trained AraBART}
 
-% \author{
-% \IEEEauthorblockN{Abdelmonem Hatem}
-% \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-% \textit{October University for Modern Sciences and Arts (MSA)}\\
-% Cairo, Egypt \\
-% Abdelmonem.hatem@msa.edu.eg}
-% \and
-% \IEEEauthorblockN{Mohamed Taha}
-% \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-% \textit{October University for Modern Sciences and Arts (MSA)}\\
-% Cairo, Egypt \\
-% mohamed.taha10@msa.edu.eg}
-% \linebreakand
-% \IEEEauthorblockN{Youssef Mohamed}
-% \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-% \textit{October University for Modern Sciences and Arts (MSA)}\\
-% Cairo, Egypt \\
-% Abdelmonem.hatem@msa.edu.eg}
-% \and
-% \IEEEauthorblockN{Mohamed Ibrahim}
-% \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-% \textit{October University for Modern Sciences and Arts (MSA)}\\
-% Cairo, Egypt \\
-% Abdelmonem5hatem@gmail.com}
-% }
+\author{
+\IEEEauthorblockN{Mohamed Soltan}
+\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+\textit{October University for Modern Sciences and Arts (MSA)}\\
+Cairo, Egypt \\
+mohamed.ibrahim42@msa.edu.eg}
+\and
+\IEEEauthorblockN{Abdelmonem Hatem}
+\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+\textit{October University for Modern Sciences and Arts (MSA)}\\
+Cairo, Egypt \\
+abdelmonem.hatem@msa.edu.eg}
+\linebreakand
+\IEEEauthorblockN{Mohamed Taha}
+\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+\textit{October University for Modern Sciences and Arts (MSA)}\\
+Cairo, Egypt \\
+mohamed.taha10@msa.edu.eg}
+\and
+\IEEEauthorblockN{Youssef Khalaf}
+\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+\textit{October University for Modern Sciences and Arts (MSA)}\\
+Cairo, Egypt \\
+youssef.mohamed94@msa.edu.eg}
+}
 
+%==========================
+\IEEEpubid{\makebox[\columnwidth]{ 979-8-3315-8488-7/26/\$31.00 ©2026 IEEE \hfill}
+\hspace{\columnsep}\makebox[\columnwidth]{ }}
 \maketitle
+\IEEEpubidadjcol
+%===========================
 
 \begin{abstract}
 Arabic text correction is a hard problem in Arabic natural language processing because the language has many spelling variants, visually similar characters, and inconsistent forms in real data sources such as OCR, speech transcription, and noisy user input. In this setting, even small character-level errors can change meaning, break token boundaries, or reduce grammatical fluency, so correction is more than simple spelling cleanup. This paper presents an end-to-end correction framework with two complementary modes: a lightweight character-level encoder-decoder Transformer trained on synthetic noisy-clean Arabic pairs, and a deployment-oriented correction service built on the pre-trained CAMeL-Lab AraBART model in a Streamlit application. The custom model is evaluated on an in-domain held-out synthetic test split and reaches 0.0364 CER, while the AraBART-based system is evaluated in a zero-shot deployment setting and provides stronger grammatical fluency and broader usability across manual text, files, OCR images, audio, and live speech. Rather than claiming one direct winner, the study analyzes the trade-off between in-domain character-level accuracy and real-world multi-modal robustness. The main contribution is a reproducible Arabic text-correction workflow that combines data curation, normalization, controlled noise synthesis, model training, error analysis, and user-facing deployment.

@@ -33,11 +33,11 @@ Good morning. We present an end-to-end Arabic text correction framework comparin
 Outline
 • Introduction & Motivation
 • Problem Statement & Soft Errors
-• Related Work
+• Related Work & Research Gap
 • Proposed End-to-End Framework
-• Data Pipeline, Normalization & Noise Injection
+• Data, Normalization & Noise Injection
 • Custom Transformer Architecture
-• AraBART Multi-modal Deployment Service
+• AraBART Multi-modal Deployment
 • Experiments, Metrics & Baselines
 • Results, Error Analysis & Discussion
 • Conclusion & Future Work
@@ -100,19 +100,42 @@ Contributions
 <!-- Slide number: 8 -->
 
 ![Picture 2.png](Picture2.jpg)
-Related Work
-Seq2Seq / Transformers
-Sutskever, Bahdanau, Vaswani — correction as conditional generation with attention.
-Denoising Pretraining
-BART / T5 show corruption-reconstruction transfers well to correction tasks.
-Arabic Pretraining
-AraBERT & CAMeL models improve Arabic understanding and generation baselines.
-Arabic GEC Benchmarks
-QALB remains core; BiLSTM and T5 variants still struggle with heavy noise.
-Deployment Gap
-Few works combine OCR + ASR + correction in one Arabic user-facing application.
+Related Work — Research Timeline
+
+![related_timeline.png](Picture3.jpg)
+
+### Notes:
+Trace the field from QALB shared tasks to BiLSTM, AraBART+GED, and T5 soft spelling — then introduce our end-to-end deployment contribution.
 
 <!-- Slide number: 9 -->
+
+![Picture 2.png](Picture2.jpg)
+Related Work — Comparative Landscape
+
+![related_comparison_table.png](Picture3.jpg)
+
+### Notes:
+Highlight Abandah BiLSTM (CER 1.28%), Al-Qaraghuli T5 (CER 0.77% on Test200), and Alhafni AraBART+GED SOTA on QALB. Emphasize that none deliver our full multi-modal workflow.
+
+<!-- Slide number: 10 -->
+
+![Picture 2.png](Picture2.jpg)
+Related Work — Capability Positioning
+
+![related_positioning.png](Picture3.jpg)
+Qualitative coverage view: prior systems are strong on soft spelling or GEC, but weak on multi-modal deployment + controlled end-to-end analysis together.
+
+<!-- Slide number: 11 -->
+
+![Picture 2.png](Picture2.jpg)
+Research Gap
+
+![research_gap.png](Picture3.jpg)
+
+### Notes:
+Prior art solves pieces of the problem. Our gap fill is the reproducible workflow that couples controlled modeling with OCR/ASR deployment.
+
+<!-- Slide number: 12 -->
 
 ![Picture 2.png](Picture2.jpg)
 Proposed Framework Overview
@@ -122,18 +145,44 @@ Proposed Framework Overview
 ### Notes:
 This is the key conceptual slide: Branch A optimizes controlled character fidelity; Branch B optimizes real-world multi-modal usability.
 
-<!-- Slide number: 10 -->
+<!-- Slide number: 13 -->
 
 ![Picture 2.png](Picture2.jpg)
 End-to-End Pipeline
 
-![pipeline.png](Picture3.jpg)
+![pipeline1.png](Picture3.jpg)
 Shared data path splits into Branch A (custom Transformer) and Branch B (AraBART multi-modal service).
 
 ### Notes:
 Walk left-to-right: Youm7 corpus, cleaning, normalization, synthetic noise, then the two branches.
 
-<!-- Slide number: 11 -->
+<!-- Slide number: 14 -->
+
+![Picture 2.png](Picture2.jpg)
+Correction Examples
+
+Noisy
+Clean
+اعلنت كليه الصيدله عن مواعبد التسجيل
+أعلنت كلية الصيدلة عن مواعيد التسجيل
+→
+Teh Marbuta / Heh + Alef + letter swaps
+
+Noisy
+Clean
+انلقت مبادرة مدارس النيل المصرية الودلية
+انطلقت مبادرة مدارس النيل المصرية الدولية
+→
+Dropped / substituted characters
+
+Noisy
+Clean
+هزا كتاب مفيد
+هذا كتاب مفيد
+→
+Visual soft substitution
+
+<!-- Slide number: 15 -->
 
 ![Picture 2.png](Picture2.jpg)
 Data Acquisition & Curation
@@ -146,7 +195,7 @@ Data Acquisition & Curation
 
 ![dataset_split.png](Picture4.jpg)
 
-<!-- Slide number: 12 -->
+<!-- Slide number: 16 -->
 
 ![Picture 2.png](Picture2.jpg)
 Arabic Corpus Context
@@ -159,31 +208,47 @@ Arabic Corpus Context
 | Amina | ~1.85M | Regional newspapers | Multimodal metadata / Public |
 | Wiki-40B (AR) | ~1M+ | Arabic Wikipedia | Language modeling / Public |
 
-<!-- Slide number: 13 -->
+<!-- Slide number: 17 -->
 
 ![Picture 2.png](Picture2.jpg)
 Normalization & Noise Injection
 
-![corruption_budget.png](Picture4.jpg)
-• Deterministic normalization: Alef, Yaa, Hamza, Teh Marbuta; remove tatweel/diacritics where needed.
-• Overall corruption budget: 20% (10% sub, 5% del, 5% ins).
-• Confusable-character map + keyboard adjacency + punctuation drift.
-• Categories keep synthesis realistic and analyzable.
-Representative Generated Pairs
-Noisy: اعلنت كليه الصيدله عن مواعبد التسجيل
-Clean: أعلنت كلية الصيدلة عن مواعيد التسجيل
+![noise_pipeline.png](Picture3.jpg)
+Deterministic normalization + 20% corruption budget enables reproducible character-level supervision.
 
-Noisy: انلقت مبادرة مدارس النيل المصرية الودلية
-Clean: انطلقت مبادرة مدارس النيل المصرية الدولية
+<!-- Slide number: 18 -->
 
-<!-- Slide number: 14 -->
+![Picture 2.png](Picture2.jpg)
+Corruption Budget & Soft Categories
+
+![corruption_budget.png](Picture3.jpg)
+• 10% substitutions from confusable maps
+• 5% deletions + 5% insertions
+• Keyboard-adjacency & punctuation drift
+• Hamza/Alef, Teh Marbuta–Heh, Yaa/ى
+• Spacing boundary shifts included
+• Designed for typing + OCR + ASR realism
+
+<!-- Slide number: 19 -->
 
 ![Picture 2.png](Picture2.jpg)
 Custom Seq2Seq Transformer (Branch A)
 
 ![seq2seq.png](Picture3.jpg)
 
-<!-- Slide number: 15 -->
+<!-- Slide number: 20 -->
+
+![Picture 2.png](Picture2.jpg)
+Transformer Encoder–Decoder Intuition
+
+![example.jpg](Picture3.jpg)
+• Noisy Arabic → embeddings + positions
+• Encoder builds contextual memory
+• Decoder generates corrected chars
+• Cross-attention links source ↔ target
+• Softmax over character vocabulary
+
+<!-- Slide number: 21 -->
 
 ![Picture 2.png](Picture2.jpg)
 Model Configuration & Training
@@ -205,32 +270,45 @@ Training Protocol
 • GPU training ≈ 100 minutes
 • Checkpoint size ≈ 50 MB
 
-<!-- Slide number: 16 -->
+<!-- Slide number: 22 -->
 
 ![Picture 2.png](Picture2.jpg)
 AraBART Deployment Service (Branch B)
-• Model: CAMeL-Lab/arabart-qalb15-gec-ged-13 (Hugging Face).
-• Integrated in a Streamlit application for practical use.
-• Input modes: manual text, text files, OCR images, audio, live speech.
-• OCR via OCR.space API; speech via Whisper ASR.
-• Zero-shot deployment setting — no project-specific fine-tuning in this study.
-• Stronger grammatical fluency and broader real-world usability.
+
+![multimodal_flow.png](Picture3.jpg)
+Model: CAMeL-Lab/arabart-qalb15-gec-ged-13 via Hugging Face + Streamlit (OCR.space + Whisper).
+
+<!-- Slide number: 23 -->
+
+![Picture 2.png](Picture2.jpg)
+Why AraBART for Deployment?
+• Pretrained Arabic seq2seq model fine-tuned for GEC/GED.
+• Strong fluency on orthography + grammar-oriented edits.
+• Zero-shot adoption in this study (no project fine-tuning).
+• Supports text, files, OCR images, audio, and live speech.
+• Trade-off: heavier footprint (~1.5 GB) vs. broader usability.
+• Complements the compact custom Transformer path.
 
 ![footprint.png](Picture4.jpg)
 
-<!-- Slide number: 17 -->
+<!-- Slide number: 24 -->
 
 ![Picture 2.png](Picture2.jpg)
-Evaluation Metrics
+Evaluation Metrics & Protocol
+
+![eval_protocol.png](Picture3.jpg)
+
+<!-- Slide number: 25 -->
+
+![Picture 2.png](Picture2.jpg)
+Primary Metric: Character Error Rate
 
 • CER suits character-level soft spelling correction.
 • BLEU used as secondary lexical/sequence quality metric.
-• Two evaluation settings (not a single leaderboard):
-– Custom model: in-domain synthetic held-out split
-– AraBART: zero-shot multi-modal application inputs
-• Baselines: normalization-only + dictionary spell correction;
-• project reference ranges for rule-based and BiLSTM.
-Primary Metric: CER
+• Baselines: normalization-only + dictionary correction.
+• Project reference ranges: rule-based & BiLSTM-style.
+• Always report setting A and setting B separately.
+CER Definition
 CER = (S + D + I) / N
 
 S = substitutions
@@ -238,7 +316,7 @@ D = deletions
 I = insertions
 N = reference length (characters)
 
-<!-- Slide number: 18 -->
+<!-- Slide number: 26 -->
 
 ![Picture 2.png](Picture2.jpg)
 Baseline Context
@@ -246,7 +324,15 @@ Baseline Context
 ![baseline_bars.png](Picture3.jpg)
 Custom Transformer reaches 89.36% character accuracy on synthetic project runs — best in-domain fidelity.
 
-<!-- Slide number: 19 -->
+<!-- Slide number: 27 -->
+
+![Picture 2.png](Picture2.jpg)
+Headline Results
+
+![metric_cards.png](Picture3.jpg)
+Read as two settings: in-domain reconstruction fidelity vs. zero-shot multi-modal deployment.
+
+<!-- Slide number: 28 -->
 
 ![Picture 2.png](Picture2.jpg)
 Training Dynamics
@@ -259,7 +345,7 @@ Training Dynamics
 • Later slight drop suggests mild overfitting to synthetic noise.
 • Earlier stopping / stronger regularization recommended.
 
-<!-- Slide number: 20 -->
+<!-- Slide number: 29 -->
 
 ![Picture 2.png](Picture2.jpg)
 Side-by-Side Results
@@ -278,7 +364,7 @@ Side-by-Side Results
 ### Notes:
 Stress that these are two operating settings, not a single fair leaderboard. Custom wins CER in-domain; AraBART wins deployment breadth.
 
-<!-- Slide number: 21 -->
+<!-- Slide number: 30 -->
 
 ![Picture 2.png](Picture2.jpg)
 CER Comparison Across Settings
@@ -289,7 +375,7 @@ CER Comparison Across Settings
 • AraBART remains preferred for fluency and multi-modal robustness.
 • Not a like-for-like contest — two operating settings.
 
-<!-- Slide number: 22 -->
+<!-- Slide number: 31 -->
 
 ![Picture 2.png](Picture2.jpg)
 CER Distribution
@@ -300,7 +386,7 @@ CER Distribution
 • Right tail = heavy corruption samples.
 • Useful for reliability assessment in deployment.
 
-<!-- Slide number: 23 -->
+<!-- Slide number: 32 -->
 
 ![Picture 2.png](Picture2.jpg)
 Character Confusion Matrix
@@ -312,7 +398,7 @@ Character Confusion Matrix
 • Whitespace boundary errors amplify local drift.
 • Guides targeted augmentation and loss design.
 
-<!-- Slide number: 24 -->
+<!-- Slide number: 33 -->
 
 ![Picture 2.png](Picture2.jpg)
 Error Analysis
@@ -324,23 +410,18 @@ Error Analysis
 • Future work should prioritize whitespace + Alef/Hamza contrasts.
 • Curriculum / class-weighted objectives can reduce hard confusions.
 
-<!-- Slide number: 25 -->
+<!-- Slide number: 34 -->
 
 ![Picture 2.png](Picture2.jpg)
 Discussion & Deployment Implications
 
-When to use Custom Transformer
-When to use AraBART Service
-• Controlled in-domain character fidelity
-• Low footprint (~50 MB) after training
-• Interpretable error diagnostics
-• Edge / lightweight serving
-• Grammatical fluency under real noise
-• OCR / ASR / live speech inputs
-• Fast adoption (no fine-tuning here)
-• User-facing educational & media tools
+![takeaway_quadrant.png](Picture3.jpg)
+• Custom Transformer: best fidelity + tiny checkpoint.
+• AraBART: best fluency across modalities.
+• Recommended production pattern: two-tier routing.
+• Next: shared QALB fair comparison.
 
-<!-- Slide number: 26 -->
+<!-- Slide number: 35 -->
 
 ![Picture 2.png](Picture2.jpg)
 Conclusion
@@ -353,7 +434,7 @@ Conclusion
 ### Notes:
 Close with the two-tier takeaway and the three contribution pillars: workflow, dual paths, and strong in-domain CER.
 
-<!-- Slide number: 27 -->
+<!-- Slide number: 36 -->
 
 ![Picture 2.png](Picture2.jpg)
 Future Work
@@ -373,21 +454,21 @@ Confidence Estimation
 Add grammar-aware detection for broader writing-support systems.
 Production-ready uncertainty signals for safer corrections.
 
-<!-- Slide number: 28 -->
+<!-- Slide number: 37 -->
 
 ![Picture 2.png](Picture2.jpg)
 Selected References
+• Mohit et al. / Rozovskaya et al., QALB-2014 & QALB-2015 Arabic GEC Shared Tasks.
+• Abandah et al., Correcting Arabic Soft Spelling Mistakes Using BiLSTM, IJACSA, 2022.
+• Al-Qaraghuli & Jaafar, Arabic Soft Spelling Correction with T5, JJCIT, 2024.
+• Alhafni, Inoue, Khairallah & Habash, Arabic GED/GEC with AraBART, EMNLP 2023.
+• Antoun et al., AraBERT; Inoue et al., CAMeL Tools / Arabic pretraining.
 • Vaswani et al., Attention Is All You Need, NeurIPS, 2017.
-• Lewis et al., BART: Denoising Seq2Seq Pre-training, ACL, 2020.
-• Raffel et al., Exploring the Limits of Transfer Learning with T5, JMLR, 2020.
-• Antoun et al., AraBERT: Transformer-based Model for Arabic, 2020.
-• Abandah et al., Correcting Arabic Soft Spelling Mistakes Using BiLSTM, 2022.
-• Al-Qaraghuli & Jaafar, Arabic Soft Spelling Correction with T5, 2024.
-• Rozovskaya et al., QALB Arabic Error Correction Shared Tasks.
+• Lewis et al., BART; Raffel et al., T5 — denoising seq2seq pretraining.
 • CAMeL-Lab AraBART (arabart-qalb15-gec-ged-13), Hugging Face.
-• Radford et al., Whisper: Robust Speech Recognition, 2023.
+• Radford et al., Whisper; OCR.space API for multi-modal ingestion.
 
-<!-- Slide number: 29 -->
+<!-- Slide number: 38 -->
 
 ![Picture 2.png](Picture1.jpg)
 Thank You

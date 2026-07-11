@@ -202,11 +202,11 @@ def slide_outline(prs):
     items = [
         "Introduction & Motivation",
         "Problem Statement & Soft Errors",
-        "Related Work",
+        "Related Work & Research Gap",
         "Proposed End-to-End Framework",
-        "Data Pipeline, Normalization & Noise Injection",
+        "Data, Normalization & Noise Injection",
         "Custom Transformer Architecture",
-        "AraBART Multi-modal Deployment Service",
+        "AraBART Multi-modal Deployment",
         "Experiments, Metrics & Baselines",
         "Results, Error Analysis & Discussion",
         "Conclusion & Future Work",
@@ -300,21 +300,55 @@ def slide_contributions(prs):
 
 
 def slide_related(prs):
+    """Legacy single slide kept for compatibility; unused in build list."""
+    return slide_related_landscape(prs)
+
+
+def slide_related_timeline(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
-    fill_title(slide, "Related Work")
+    fill_title(slide, "Related Work — Research Timeline")
     add_logo_corner(slide, prs)
-    rows = [
-        ("Seq2Seq / Transformers", "Sutskever, Bahdanau, Vaswani — correction as conditional generation with attention."),
-        ("Denoising Pretraining", "BART / T5 show corruption-reconstruction transfers well to correction tasks."),
-        ("Arabic Pretraining", "AraBERT & CAMeL models improve Arabic understanding and generation baselines."),
-        ("Arabic GEC Benchmarks", "QALB remains core; BiLSTM and T5 variants still struggle with heavy noise."),
-        ("Deployment Gap", "Few works combine OCR + ASR + correction in one Arabic user-facing application."),
-    ]
-    y = 1.4
-    for title, body in rows:
-        add_textbox(slide, Inches(0.7), Inches(y), Inches(3.6), Inches(0.7), title, size=14, bold=True, color=BLUE)
-        add_textbox(slide, Inches(4.4), Inches(y), Inches(8.0), Inches(0.7), body, size=14, color=BLACK)
-        y += 0.95
+    add_picture_safe(slide, ASSETS / "related_timeline.png", Inches(0.35), Inches(1.2), width=Inches(12.4))
+    add_notes(
+        slide,
+        "Trace the field from QALB shared tasks to BiLSTM, AraBART+GED, and T5 soft spelling — then introduce our end-to-end deployment contribution.",
+    )
+    return slide
+
+
+def slide_related_landscape(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Related Work — Comparative Landscape")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "related_comparison_table.png", Inches(0.25), Inches(1.15), width=Inches(12.7))
+    add_notes(
+        slide,
+        "Highlight Abandah BiLSTM (CER 1.28%), Al-Qaraghuli T5 (CER 0.77% on Test200), and Alhafni AraBART+GED SOTA on QALB. Emphasize that none deliver our full multi-modal workflow.",
+    )
+    return slide
+
+
+def slide_related_positioning(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Related Work — Capability Positioning")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "related_positioning.png", Inches(0.5), Inches(1.2), width=Inches(12.1))
+    add_footer_note(
+        slide,
+        "Qualitative coverage view: prior systems are strong on soft spelling or GEC, but weak on multi-modal deployment + controlled end-to-end analysis together.",
+    )
+    return slide
+
+
+def slide_research_gap(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Research Gap")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "research_gap.png", Inches(0.4), Inches(1.15), width=Inches(12.3))
+    add_notes(
+        slide,
+        "Prior art solves pieces of the problem. Our gap fill is the reproducible workflow that couples controlled modeling with OCR/ASR deployment.",
+    )
     return slide
 
 
@@ -334,10 +368,51 @@ def slide_pipeline(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     fill_title(slide, "End-to-End Pipeline")
     add_logo_corner(slide, prs)
-    img = DIAGRAMS / "pipeline.png"
-    add_picture_safe(slide, img, Inches(0.25), Inches(1.2), width=Inches(12.7))
+    # Prefer the detailed pipeline1 if available, else pipeline.png
+    img = DIAGRAMS / "pipeline1.png"
+    if not img.exists():
+        img = DIAGRAMS / "pipeline.png"
+    add_picture_safe(slide, img, Inches(0.2), Inches(1.15), width=Inches(12.8))
     add_footer_note(slide, "Shared data path splits into Branch A (custom Transformer) and Branch B (AraBART multi-modal service).")
     add_notes(slide, "Walk left-to-right: Youm7 corpus, cleaning, normalization, synthetic noise, then the two branches.")
+    return slide
+
+
+def slide_before_after(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Correction Examples")
+    add_logo_corner(slide, prs)
+
+    examples = [
+        (
+            "اعلنت كليه الصيدله عن مواعبد التسجيل",
+            "أعلنت كلية الصيدلة عن مواعيد التسجيل",
+            "Teh Marbuta / Heh + Alef + letter swaps",
+        ),
+        (
+            "انلقت مبادرة مدارس النيل المصرية الودلية",
+            "انطلقت مبادرة مدارس النيل المصرية الدولية",
+            "Dropped / substituted characters",
+        ),
+        (
+            "هزا كتاب مفيد",
+            "هذا كتاب مفيد",
+            "Visual soft substitution",
+        ),
+    ]
+    y = 1.35
+    for noisy, clean, note in examples:
+        add_card(slide, Inches(0.4), Inches(y), Inches(5.5), Inches(1.55), fill=RGBColor(0xFD, 0xED, 0xEC))
+        add_textbox(slide, Inches(0.55), Inches(y + 0.1), Inches(2), Inches(0.3), "Noisy", size=12, bold=True, color=RGBColor(0xC0, 0x39, 0x2B))
+        add_textbox(slide, Inches(0.55), Inches(y + 0.5), Inches(5.2), Inches(0.8), noisy, size=16, color=BLACK, align=PP_ALIGN.CENTER)
+
+        add_card(slide, Inches(7.2), Inches(y), Inches(5.5), Inches(1.55), fill=RGBColor(0xE8, 0xF8, 0xF0))
+        add_textbox(slide, Inches(7.35), Inches(y + 0.1), Inches(2), Inches(0.3), "Clean", size=12, bold=True, color=RGBColor(0x2E, 0x8B, 0x57))
+        add_textbox(slide, Inches(7.35), Inches(y + 0.5), Inches(5.2), Inches(0.8), clean, size=16, color=BLACK, align=PP_ALIGN.CENTER)
+
+        add_textbox(slide, Inches(5.8), Inches(y + 0.55), Inches(1.5), Inches(0.45), "→", size=22, bold=True, color=BLUE, align=PP_ALIGN.CENTER)
+        add_textbox(slide, Inches(5.5), Inches(y + 1.15), Inches(2.2), Inches(0.35), note, size=9, color=GRAY, align=PP_ALIGN.CENTER)
+        y += 1.75
     return slide
 
 
@@ -407,34 +482,32 @@ def slide_noise(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     fill_title(slide, "Normalization & Noise Injection")
     add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "noise_pipeline.png", Inches(0.35), Inches(1.2), width=Inches(12.4))
+    add_footer_note(slide, "Deterministic normalization + 20% corruption budget enables reproducible character-level supervision.")
+    return slide
+
+
+def slide_noise_budget(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Corruption Budget & Soft Categories")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "corruption_budget.png", Inches(0.4), Inches(1.35), width=Inches(6.2))
     add_bullets(
         slide,
-        Inches(0.5),
-        Inches(1.35),
-        Inches(6.0),
-        Inches(3.2),
+        Inches(6.9),
+        Inches(1.5),
+        Inches(5.5),
+        Inches(5.2),
         [
-            "Deterministic normalization: Alef, Yaa, Hamza, Teh Marbuta; remove tatweel/diacritics where needed.",
-            "Overall corruption budget: 20% (10% sub, 5% del, 5% ins).",
-            "Confusable-character map + keyboard adjacency + punctuation drift.",
-            "Categories keep synthesis realistic and analyzable.",
+            "10% substitutions from confusable maps",
+            "5% deletions + 5% insertions",
+            "Keyboard-adjacency & punctuation drift",
+            "Hamza/Alef, Teh Marbuta–Heh, Yaa/ى",
+            "Spacing boundary shifts included",
+            "Designed for typing + OCR + ASR realism",
         ],
-        size=14,
-        spacing=8,
-    )
-    add_picture_safe(slide, ASSETS / "corruption_budget.png", Inches(6.5), Inches(1.3), width=Inches(6.0))
-
-    # example pairs
-    add_textbox(slide, Inches(0.5), Inches(4.7), Inches(12), Inches(0.35), "Representative Generated Pairs", size=14, bold=True, color=BLUE)
-    add_textbox(
-        slide,
-        Inches(0.5),
-        Inches(5.1),
-        Inches(12.2),
-        Inches(1.6),
-        "Noisy: اعلنت كليه الصيدله عن مواعبد التسجيل\nClean: أعلنت كلية الصيدلة عن مواعيد التسجيل\n\nNoisy: انلقت مبادرة مدارس النيل المصرية الودلية\nClean: انطلقت مبادرة مدارس النيل المصرية الدولية",
-        size=13,
-        color=BLACK,
+        size=15,
+        spacing=10,
     )
     return slide
 
@@ -444,6 +517,34 @@ def slide_architecture(prs):
     fill_title(slide, "Custom Seq2Seq Transformer (Branch A)")
     add_logo_corner(slide, prs)
     add_picture_safe(slide, DIAGRAMS / "seq2seq.png", Inches(0.2), Inches(1.15), width=Inches(12.8))
+    return slide
+
+
+def slide_transformer_ref(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Transformer Encoder–Decoder Intuition")
+    add_logo_corner(slide, prs)
+    img = DIAGRAMS / "example.jpg"
+    if img.exists():
+        add_picture_safe(slide, img, Inches(0.5), Inches(1.2), width=Inches(8.0))
+    else:
+        add_picture_safe(slide, DIAGRAMS / "Transformer.jpg", Inches(0.5), Inches(1.2), width=Inches(8.0))
+    add_bullets(
+        slide,
+        Inches(8.7),
+        Inches(1.5),
+        Inches(4.0),
+        Inches(5.0),
+        [
+            "Noisy Arabic → embeddings + positions",
+            "Encoder builds contextual memory",
+            "Decoder generates corrected chars",
+            "Cross-attention links source ↔ target",
+            "Softmax over character vocabulary",
+        ],
+        size=14,
+        spacing=10,
+    )
     return slide
 
 
@@ -484,6 +585,15 @@ def slide_arabart(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     fill_title(slide, "AraBART Deployment Service (Branch B)")
     add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "multimodal_flow.png", Inches(0.3), Inches(1.2), width=Inches(12.5))
+    add_footer_note(slide, "Model: CAMeL-Lab/arabart-qalb15-gec-ged-13 via Hugging Face + Streamlit (OCR.space + Whisper).")
+    return slide
+
+
+def slide_arabart_details(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Why AraBART for Deployment?")
+    add_logo_corner(slide, prs)
     add_bullets(
         slide,
         Inches(0.6),
@@ -491,12 +601,12 @@ def slide_arabart(prs):
         Inches(6.2),
         Inches(5.0),
         [
-            "Model: CAMeL-Lab/arabart-qalb15-gec-ged-13 (Hugging Face).",
-            "Integrated in a Streamlit application for practical use.",
-            "Input modes: manual text, text files, OCR images, audio, live speech.",
-            "OCR via OCR.space API; speech via Whisper ASR.",
-            "Zero-shot deployment setting — no project-specific fine-tuning in this study.",
-            "Stronger grammatical fluency and broader real-world usability.",
+            "Pretrained Arabic seq2seq model fine-tuned for GEC/GED.",
+            "Strong fluency on orthography + grammar-oriented edits.",
+            "Zero-shot adoption in this study (no project fine-tuning).",
+            "Supports text, files, OCR images, audio, and live speech.",
+            "Trade-off: heavier footprint (~1.5 GB) vs. broader usability.",
+            "Complements the compact custom Transformer path.",
         ],
         size=15,
         spacing=10,
@@ -507,10 +617,18 @@ def slide_arabart(prs):
 
 def slide_metrics(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
-    fill_title(slide, "Evaluation Metrics")
+    fill_title(slide, "Evaluation Metrics & Protocol")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "eval_protocol.png", Inches(0.4), Inches(1.2), width=Inches(12.3))
+    return slide
+
+
+def slide_metrics_formula(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Primary Metric: Character Error Rate")
     add_logo_corner(slide, prs)
     add_card(slide, Inches(0.6), Inches(1.5), Inches(5.8), Inches(3.2))
-    add_textbox(slide, Inches(0.9), Inches(1.7), Inches(5.2), Inches(0.4), "Primary Metric: CER", size=18, bold=True, color=BLUE)
+    add_textbox(slide, Inches(0.9), Inches(1.7), Inches(5.2), Inches(0.4), "CER Definition", size=18, bold=True, color=BLUE)
     add_textbox(
         slide,
         Inches(0.9),
@@ -530,11 +648,9 @@ def slide_metrics(prs):
         [
             "CER suits character-level soft spelling correction.",
             "BLEU used as secondary lexical/sequence quality metric.",
-            "Two evaluation settings (not a single leaderboard):",
-            "– Custom model: in-domain synthetic held-out split",
-            "– AraBART: zero-shot multi-modal application inputs",
-            "Baselines: normalization-only + dictionary spell correction;",
-            "project reference ranges for rule-based and BiLSTM.",
+            "Baselines: normalization-only + dictionary correction.",
+            "Project reference ranges: rule-based & BiLSTM-style.",
+            "Always report setting A and setting B separately.",
         ],
         size=14,
         spacing=8,
@@ -548,6 +664,15 @@ def slide_baselines(prs):
     add_logo_corner(slide, prs)
     add_picture_safe(slide, ASSETS / "baseline_bars.png", Inches(1.2), Inches(1.3), width=Inches(10.5))
     add_footer_note(slide, "Custom Transformer reaches 89.36% character accuracy on synthetic project runs — best in-domain fidelity.")
+    return slide
+
+
+def slide_headline_results(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    fill_title(slide, "Headline Results")
+    add_logo_corner(slide, prs)
+    add_picture_safe(slide, ASSETS / "metric_cards.png", Inches(0.5), Inches(1.8), width=Inches(12.1))
+    add_footer_note(slide, "Read as two settings: in-domain reconstruction fidelity vs. zero-shot multi-modal deployment.")
     return slide
 
 
@@ -718,40 +843,21 @@ def slide_discussion(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     fill_title(slide, "Discussion & Deployment Implications")
     add_logo_corner(slide, prs)
-    add_card(slide, Inches(0.5), Inches(1.4), Inches(5.8), Inches(5.0))
-    add_textbox(slide, Inches(0.75), Inches(1.6), Inches(5.3), Inches(0.4), "When to use Custom Transformer", size=16, bold=True, color=BLUE)
+    add_picture_safe(slide, ASSETS / "takeaway_quadrant.png", Inches(0.4), Inches(1.2), width=Inches(7.0))
     add_bullets(
         slide,
-        Inches(0.75),
-        Inches(2.2),
-        Inches(5.3),
-        Inches(4.0),
+        Inches(7.6),
+        Inches(1.5),
+        Inches(5.0),
+        Inches(5.0),
         [
-            "Controlled in-domain character fidelity",
-            "Low footprint (~50 MB) after training",
-            "Interpretable error diagnostics",
-            "Edge / lightweight serving",
+            "Custom Transformer: best fidelity + tiny checkpoint.",
+            "AraBART: best fluency across modalities.",
+            "Recommended production pattern: two-tier routing.",
+            "Next: shared QALB fair comparison.",
         ],
         size=14,
-        spacing=8,
-    )
-
-    add_card(slide, Inches(6.7), Inches(1.4), Inches(5.8), Inches(5.0), fill=RGBColor(0xFF, 0xF8, 0xEC))
-    add_textbox(slide, Inches(6.95), Inches(1.6), Inches(5.3), Inches(0.4), "When to use AraBART Service", size=16, bold=True, color=ACCENT)
-    add_bullets(
-        slide,
-        Inches(6.95),
-        Inches(2.2),
-        Inches(5.3),
-        Inches(4.0),
-        [
-            "Grammatical fluency under real noise",
-            "OCR / ASR / live speech inputs",
-            "Fast adoption (no fine-tuning here)",
-            "User-facing educational & media tools",
-        ],
-        size=14,
-        spacing=8,
+        spacing=10,
     )
     return slide
 
@@ -808,17 +914,17 @@ def slide_refs(prs):
     fill_title(slide, "Selected References")
     add_logo_corner(slide, prs)
     refs = [
+        "Mohit et al. / Rozovskaya et al., QALB-2014 & QALB-2015 Arabic GEC Shared Tasks.",
+        "Abandah et al., Correcting Arabic Soft Spelling Mistakes Using BiLSTM, IJACSA, 2022.",
+        "Al-Qaraghuli & Jaafar, Arabic Soft Spelling Correction with T5, JJCIT, 2024.",
+        "Alhafni, Inoue, Khairallah & Habash, Arabic GED/GEC with AraBART, EMNLP 2023.",
+        "Antoun et al., AraBERT; Inoue et al., CAMeL Tools / Arabic pretraining.",
         "Vaswani et al., Attention Is All You Need, NeurIPS, 2017.",
-        "Lewis et al., BART: Denoising Seq2Seq Pre-training, ACL, 2020.",
-        "Raffel et al., Exploring the Limits of Transfer Learning with T5, JMLR, 2020.",
-        "Antoun et al., AraBERT: Transformer-based Model for Arabic, 2020.",
-        "Abandah et al., Correcting Arabic Soft Spelling Mistakes Using BiLSTM, 2022.",
-        "Al-Qaraghuli & Jaafar, Arabic Soft Spelling Correction with T5, 2024.",
-        "Rozovskaya et al., QALB Arabic Error Correction Shared Tasks.",
+        "Lewis et al., BART; Raffel et al., T5 — denoising seq2seq pretraining.",
         "CAMeL-Lab AraBART (arabart-qalb15-gec-ged-13), Hugging Face.",
-        "Radford et al., Whisper: Robust Speech Recognition, 2023.",
+        "Radford et al., Whisper; OCR.space API for multi-modal ingestion.",
     ]
-    add_bullets(slide, Inches(0.7), Inches(1.4), Inches(11.5), Inches(5.5), refs, size=14, spacing=8)
+    add_bullets(slide, Inches(0.7), Inches(1.4), Inches(11.5), Inches(5.5), refs, size=13, spacing=7)
     return slide
 
 
@@ -879,17 +985,29 @@ def build():
         slide_problem,
         slide_soft_errors,
         slide_contributions,
-        slide_related,
+        # Strengthened related work block
+        slide_related_timeline,
+        slide_related_landscape,
+        slide_related_positioning,
+        slide_research_gap,
+        # Method
         slide_framework,
         slide_pipeline,
+        slide_before_after,
         slide_data,
         slide_corpus_table,
         slide_noise,
+        slide_noise_budget,
         slide_architecture,
+        slide_transformer_ref,
         slide_hyperparams,
         slide_arabart,
+        slide_arabart_details,
+        # Experiments / results
         slide_metrics,
+        slide_metrics_formula,
         slide_baselines,
+        slide_headline_results,
         slide_training_results,
         slide_results_table,
         slide_cer_compare,
